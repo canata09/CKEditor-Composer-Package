@@ -84,25 +84,26 @@ Bu, autoload dosyalarını yeniden oluşturur ve projenizin güncel durumunu yan
 
 Aşağıdaki adımları izleyebilirsiniz:
    ```bash
-   composer require paket-adi
+   composer require ckeditor/ckeditor
    ```
 
 11. **`index.php` Dosyasını Güncelleme:**
    `index.php` dosyanızda, en üstte `autoload.php` dosyasını dahil edin. Örneğin:
 
    ```php
-   <?php
-   require 'vendor/autoload.php';
-
-   // Header bileşenini ekle
-   include 'header.php';
-
-   // Burada Composer ile yüklediğiniz paketleri kullanabilirsiniz
-   use Some\Package\ClassName;
-
-   // Footer bileşenini ekle
-   include 'footer.php';
-   ?>
+        <?php
+        require_once 'vendor/autoload.php';
+        ?>
+        
+        <form method="post" action="submit.php">
+            <textarea name="content" id="editor"></textarea>
+            <button type="submit">Gönder</button>
+        </form>
+        
+        <script src="vendor/ckeditor/ckeditor/ckeditor.js"></script>
+        <script>
+            CKEDITOR.replace('editor');
+        </script>
    ```
 
 12. **Paket Kullanımı:** İlgili paketlerin sınıflarını kullanarak kodunuzu yazabilirsiniz.
